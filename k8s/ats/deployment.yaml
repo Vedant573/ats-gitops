@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: ats-app
-        image: vedant573/ats-app:REPLACEME
+        image: vedant573/ats-app:8
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
