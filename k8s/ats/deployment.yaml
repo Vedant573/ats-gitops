@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ats-app
+  namespace: ats
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ats-app
+  template:
+    metadata:
+      labels:
+        app: ats-app
+    spec:
+      containers:
+      - name: ats-app
+        image: vedant573/ats-app:REPLACEME
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+
